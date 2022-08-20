@@ -12,9 +12,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class HelloWorldController {
 
     @GetMapping
-    public ModelAndView index(Model model) {
+    public ModelAndView index() {
         ModelAndView mv = new ModelAndView("/hello");
         return mv;
+    }
+
+    @GetMapping("/new")
+    public String newPath(Model model) {
+        return "new";
     }
 
 
