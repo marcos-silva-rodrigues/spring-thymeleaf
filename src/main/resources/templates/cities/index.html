@@ -13,18 +13,25 @@
 <body>
 
 <section>
-    <a href=""></a>
+    <a th:href="@{/cities/new}" class="btn btn-primary">create</a>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>id</th>
                 <th>Name</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>São Paulo</td>
+            <tr th:each="city: ${cities}">
+                <td th:text="${city.id}"></td>
+                <td th:text="${city.name}"></td>
+                <td>
+                    <a th:href="@{/cities/{id}(id=${city.id})}" class="btn btn-small btn-info">edit</a>
+                    <form th:action="@{/cities/{id}(id=${city.id})}" th:method="delete" style="display: inline-block;">
+                        <button type="submit" class="btn btn-small btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>
