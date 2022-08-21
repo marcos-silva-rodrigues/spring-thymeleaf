@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="pt-BR"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+    th:replace="~{fragment/layout :: layout(~{::title}, ~{::section})}"
+>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -10,9 +12,9 @@
 </head>
 <body>
 
-    <div th:insert="layout :: content">
+    <section>
         <p>Hello world</p>
-    </div>
+    </section>
 
 </body>
 </html>
